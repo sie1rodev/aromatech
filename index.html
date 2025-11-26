@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Aromatech</title>
+</head>
+<body>
+
+<header>
+
+  <div class="header-top">
+    <h1 class="logo">Aromatech</h1>
+  </div>
+
+  <div class="header-center">
+    <h2>Velas Artesanais & Aromáticas</h2>
+    <p>Fragrâncias que transformam momentos em experiências.</p>
+    <p>Feitos por alunos do Cólegio Jean Jacques Rousseal</p>
+  </div>
+
+</header>
+
+<section>
+  <h2 class="section-title">Quem Somos</h2>
+  <div class="quem-somos">
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" />
+    <p>
+      A Aromatech nasceu do desejo de transformar simples momentos em experiências marcantes.
+      Para nós, acender uma vela vai muito além do aroma: é criar atmosfera, conectar sensações
+      e despertar sentimentos.  
+      <br><br>
+      Cada vela é produzida com cuidado, trazendo luz suave, perfume envolvente e uma playlist exclusiva,
+      pensada para combinar perfeitamente com o momento escolhido — seja para relaxar, estudar, meditar
+      ou simplesmente apreciar o presente.  
+      <br><br>
+      Acreditamos que pequenos detalhes podem transformar o dia. Por isso, cada vela é criada para
+      trazer aconchego, inspiração e boas memórias.  
+      <br><br>
+      <strong>Aromatech: acenda, sinta e viva a experiência.</strong>
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Nossas Velas</h2>
+  <div class="velas">
+
+    <div class="vela-card">
+      <img src="assets/vela-peonia.jpeg" />
+      <h3>Peônia</h3>
+      <p>Transforma qualquer ambiente em um refúgio de leveza e encanto.</p>
+      <button class="card-btn" data-vela="peonia">+ informações</button>
+    </div>
+
+    <div class="vela-card">
+      <img src="assets/vela-manga.jpeg" />
+      <h3>Manga</h3>
+      <p>Ideal para aumentar alegria e amor-próprio.</p>
+      <button class="card-btn" data-vela="manga">+ informações</button>
+    </div>
+
+    <div class="vela-card">
+      <img src="assets/vela-canela.jpeg" />
+      <h3>Canela</h3>
+      <p>Essência estimulante para foco, trabalho e estudos.</p>
+      <button class="card-btn" data-vela="canela">+ informações</button>
+    </div>
+
+    <div class="vela-card">
+      <img src="assets/vela-baunilha.jpeg" />
+      <h3>Baunilha</h3>
+      <p>Suave e relaxante, perfeita para reduzir ansiedade.</p>
+      <button class="card-btn" data-vela="baunilha">+ informações</button>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <p>© 2025 Aromatech — Todos os direitos reservados</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="modal-img" src="">
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+  </div>
+</div>
+
+<script>
+  const detalhes = {
+    peonia: {
+      img: "assets/vela-peonia.jpeg",
+      titulo: "Vela Peônia",
+      desc: "Aroma floral sofisticado que traz leveza, frescor e um clima romântico ao ambiente. Ideal para noites tranquilas, autocuidado e momentos de paz."
+    },
+    manga: {
+      img: "assets/vela-manga.jpeg",
+      titulo: "Vela de Manga",
+      desc: "Tropical, doce e vibrante. Uma vela feita para elevar o astral, estimular alegria, renovar a energia e fortalecer o amor-próprio."
+    },
+    canela: {
+      img: "assets/vela-canela.jpeg",
+      titulo: "Vela de Canela",
+      desc: "Aroma quente e estimulante, perfeito para foco, trabalho e estudos. A canela desperta energia, produtividade e motivação."
+    },
+    baunilha: {
+      img: "assets/vela-baunilha.jpeg",
+      titulo: "Vela Baunilha",
+      desc: "Suave, cremosa e acolhedora. Ideal para relaxamento, descanso e redução da ansiedade. A vela perfeita para noites tranquilas."
+    }
+  };
+
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const modalTitle = document.getElementById("modal-title");
+  const modalDesc = document.getElementById("modal-desc");
+  const closeBtn = document.querySelector(".close");
+
+  document.querySelectorAll(".card-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const vela = detalhes[btn.dataset.vela];
+      modalImg.src = vela.img;
+      modalTitle.textContent = vela.titulo;
+      modalDesc.textContent = vela.desc;
+      modal.classList.add("show");
+    });
+  });
+
+  closeBtn.onclick = () => modal.classList.remove("show");
+
+  modal.onclick = e => {
+    if (e.target === modal) modal.classList.remove("show");
+  };
+</script>
+
+</body>
+</html>

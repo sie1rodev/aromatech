@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #fff8f3;
+  --text: #1a1a1a;
+  --primary: #d9966a;
+  --card: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ===== HEADER ===== */
+header {
+  height: 85vh;
+  background: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd') center/cover;
+  position: relative;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+header * {
+  position: relative;
+  z-index: 2;
+}
+
+.header-top {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+}
+
+.logo {
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #fff, #d9966a, #fff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 3s infinite linear;
+}
+
+.header-center {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.header-center h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.header-center p {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  opacity: .9;
+  animation: fadeUp 1.2s ease;
+}
+
+/* ===== SEÇÕES ===== */
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h2.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* QUEM SOMOS */
+.quem-somos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  text-align: center;
+}
+
+.quem-somos img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.quem-somos p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ===== VELAS - CARDS ===== */
+.velas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.vela-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid #efdfd2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  transition: .25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vela-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 26px rgba(0,0,0,0.15);
+}
+
+.vela-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+
+.vela-card h3 {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.vela-card p {
+  font-size: .95rem;
+  line-height: 1.5;
+  text-align: center;
+  opacity: .85;
+  margin-bottom: 15px;
+}
+
+.card-btn {
+  padding: 10px 16px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.card-btn:hover {
+  background: #b97b48;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--primary);
+  padding: 35px 0;
+  text-align: center;
+  margin-top: 60px;
+}
+
+footer p {
+  color: #fff;
+  opacity: .9;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  padding: 25px;
+  border-radius: 18px;
+  position: relative;
+  animation: pop .25s ease;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 18px;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+@keyframes pop {
+  from { transform: scale(.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes shimmer { 
+  0% {background-position: 0% 50%;} 
+  100% {background-position: 200% 50%;} 
+}
+
+@keyframes fadeUp { 
+  from {opacity:0; transform:translateY(25px);} 
+  to {opacity:1; transform:translateY(0);} 
+}
